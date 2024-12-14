@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="/styles.css/main.css">
+</head>
+<body>
+    <header>
+        <h1>User Profile</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="events.html">Events</a>
+            <a href="/calender.html">Event Calendar</a> 
+            <a href="logout.html">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="profile-details">
+            <h2>Welcome, <span id="user-name">[User's Name]</span></h2> 
+            <h3>Your RSVP'd Events:</h3>
+            <div id="rsvp-list">
+                <!-- RSVP events will be displayed here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Campus Event Management System. All Rights Reserved.</p>
+    </footer>
+    
+    <script src="/scripts/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const token = localStorage.getItem('token');
+            if (token) {
+                // Decode the token to get user info
+                const decoded = jwt_decode(token);  // Decode JWT token (make sure you import jwt_decode)
+                
+                // Update profile details on the page
+                document.getElementById('user-name').textContent = decoded.username;
+                document.getElementById('user-email').textContent = decoded.email;
+                
+                // Display event preferences as a comma-separated list
+                document.getElementById('user-preferences').textContent = decoded.preferences.join(', '); 
+            } else {
+                window.location.href = '/login.html';  // Redirect to login if not logged in
+            }
+        });
+    </script>
+
+</body>
+</html>

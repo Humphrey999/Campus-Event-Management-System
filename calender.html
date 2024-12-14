@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Calendar</title>
+    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/core/main.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid/main.css" rel="stylesheet">
+    <style>
+        #calendar {
+            max-width: 900px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Event Calendar</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="user-profile.html">Profile</a>
+            <a href="logout.html">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <div id="calendar"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Campus Event Management System. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const calendarEl = document.getElementById('calendar');
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                plugins: ['dayGrid'],
+                initialView: 'dayGridMonth',
+                events: [
+                    { title: 'Sample Event 1', date: '2024-12-20' },
+                    { title: 'Sample Event 2', date: '2024-12-25' }
+                ]
+            });
+            calendar.render();
+        });
+    </script>
+</body>
+</html>

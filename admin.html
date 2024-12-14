@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Creation - Admin</title>
+    <link rel="stylesheet" href="/styles.css/main.css">
+</head>
+<body>
+    <header>
+        <h1>Admin Event Creation</h1>
+        <nav>
+            <a href="index.html">Back to Home</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="create-event-form">
+            <h2>Create a New Event</h2>
+            <form id="create-event-form">
+                <input type="text" id="event-title" placeholder="Event Title">
+                <textarea id="event-description" placeholder="Event Description"></textarea>
+                <input type="datetime-local" id="event-date">
+                <input type="text" id="event-location" placeholder="Event Location">
+                <input type="number" id="event-capacity" placeholder="Event Capacity">
+                <button type="submit">Create Event</button>
+            </form>
+            
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Campus Event Management System. All Rights Reserved.</p>
+    </footer>
+
+    <script src="/scripts/admin.js"></script>
+    <!-- <script>
+        // Check if the user is an admin before allowing access to the admin page
+        document.addEventListener('DOMContentLoaded', function() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = '/login.html';  // Redirect to login if no token
+            } else {
+                const decoded = jwt_decode(token);  // Decode the token
+                if (decoded.role !== 'admin') {
+                    window.location.href = '/user.html';  // Redirect non-admins to user profile
+                }
+            }
+        });
+    </script> -->
+</body>
+</html>
